@@ -1,0 +1,293 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     KDD-weka.filters.unsupervised.instance.Randomize-S42-weka.filters.unsupervised.instance.Randomize-S42-weka.filters.unsupervised.instance.RemovePercentage-P90.0
+Instances:    49402
+Attributes:   42
+              duration
+              protocol_type
+              service
+              flag
+              src_bytes
+              dst_bytes
+              land
+              wrong_fragment
+              urgent
+              hot
+              num_failed_logins
+              logged_in
+              num_compromised
+              root_shell
+              su_attempted
+              num_root
+              num_file_creations
+              num_shells
+              num_access_files
+              num_outbound_cmds
+              is_host_login
+              is_guest_login
+              count
+              srv_count
+              serror_rate
+              srv_serror_rate
+              rerror_rate
+              srv_rerror_rate
+              same_srv_rate
+              diff_srv_rate
+              srv_diff_host_rate
+              dst_host_count
+              dst_host_srv_count
+              dst_host_same_srv_rate
+              dst_host_diff_srv_rate
+              dst_host_same_src_port_rate
+              dst_host_srv_diff_host_rate
+              dst_host_serror_rate
+              dst_host_srv_serror_rate
+              dst_host_rerror_rate
+              dst_host_srv_rerror_rate
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+srv_count <= 320
+|   same_srv_rate <= 0.32
+|   |   src_bytes <= 0
+|   |   |   diff_srv_rate <= 0.3: neptune. (10719.0)
+|   |   |   diff_srv_rate > 0.3
+|   |   |   |   dst_host_serror_rate <= 0.67
+|   |   |   |   |   diff_srv_rate <= 0.75: portsweep. (6.0)
+|   |   |   |   |   diff_srv_rate > 0.75: satan. (148.0)
+|   |   |   |   dst_host_serror_rate > 0.67: neptune. (18.0)
+|   |   src_bytes > 0
+|   |   |   wrong_fragment <= 1
+|   |   |   |   src_bytes <= 18: satan. (11.0)
+|   |   |   |   src_bytes > 18: normal. (37.0)
+|   |   |   wrong_fragment > 1: teardrop. (4.0)
+|   same_srv_rate > 0.32
+|   |   wrong_fragment <= 0
+|   |   |   dst_host_serror_rate <= 0.77
+|   |   |   |   num_compromised <= 0
+|   |   |   |   |   dst_host_srv_diff_host_rate <= 0.24
+|   |   |   |   |   |   dst_host_srv_rerror_rate <= 0.99
+|   |   |   |   |   |   |   hot <= 0
+|   |   |   |   |   |   |   |   count <= 73
+|   |   |   |   |   |   |   |   |   dst_host_same_src_port_rate <= 0.99
+|   |   |   |   |   |   |   |   |   |   dst_host_serror_rate <= 0.09: normal. (8795.0/12.0)
+|   |   |   |   |   |   |   |   |   |   dst_host_serror_rate > 0.09
+|   |   |   |   |   |   |   |   |   |   |   dst_host_rerror_rate <= 0.1: normal. (23.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   dst_host_rerror_rate > 0.1: satan. (4.0)
+|   |   |   |   |   |   |   |   |   dst_host_same_src_port_rate > 0.99
+|   |   |   |   |   |   |   |   |   |   src_bytes <= 333
+|   |   |   |   |   |   |   |   |   |   |   dst_host_srv_serror_rate <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |   dst_bytes <= 1151491: normal. (409.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   dst_bytes > 1151491: warezmaster. (2.0)
+|   |   |   |   |   |   |   |   |   |   |   dst_host_srv_serror_rate > 0.01: warezclient. (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   src_bytes > 333
+|   |   |   |   |   |   |   |   |   |   |   protocol_type = tcp
+|   |   |   |   |   |   |   |   |   |   |   |   dst_host_srv_count <= 53: warezclient. (51.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   dst_host_srv_count > 53: normal. (12.0)
+|   |   |   |   |   |   |   |   |   |   |   protocol_type = icmp: smurf. (10.0)
+|   |   |   |   |   |   |   |   |   |   |   protocol_type = udp: warezclient. (0.0)
+|   |   |   |   |   |   |   |   count > 73
+|   |   |   |   |   |   |   |   |   src_bytes <= 516
+|   |   |   |   |   |   |   |   |   |   same_srv_rate <= 0.96: satan. (3.0)
+|   |   |   |   |   |   |   |   |   |   same_srv_rate > 0.96: normal. (65.0)
+|   |   |   |   |   |   |   |   |   src_bytes > 516: smurf. (24.0)
+|   |   |   |   |   |   |   hot > 0
+|   |   |   |   |   |   |   |   rerror_rate <= 0.11
+|   |   |   |   |   |   |   |   |   src_bytes <= 978
+|   |   |   |   |   |   |   |   |   |   dst_host_serror_rate <= 0.11: normal. (36.0/2.0)
+|   |   |   |   |   |   |   |   |   |   dst_host_serror_rate > 0.11: imap. (2.0/1.0)
+|   |   |   |   |   |   |   |   |   src_bytes > 978
+|   |   |   |   |   |   |   |   |   |   dst_bytes <= 2762: warezclient. (38.0)
+|   |   |   |   |   |   |   |   |   |   dst_bytes > 2762: normal. (5.0)
+|   |   |   |   |   |   |   |   rerror_rate > 0.11
+|   |   |   |   |   |   |   |   |   service = http: back. (4.0)
+|   |   |   |   |   |   |   |   |   service = smtp: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = finger: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = domain_u: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = auth: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = telnet: guess_passwd. (2.0)
+|   |   |   |   |   |   |   |   |   service = ftp: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = eco_i: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = ntp_u: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = ecr_i: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = other: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = private: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = pop_3: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = ftp_data: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = rje: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = time: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = mtp: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = link: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = remote_job: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = gopher: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = ssh: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = name: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = whois: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = login: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = imap4: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = daytime: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = ctf: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = nntp: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = shell: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = IRC: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = nnsp: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = http_443: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = exec: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = printer: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = efs: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = courier: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = uucp: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = klogin: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = kshell: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = echo: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = discard: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = systat: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = supdup: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = iso_tsap: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = hostnames: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = csnet_ns: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = pop_2: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = sunrpc: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = uucp_path: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = netbios_ns: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = netbios_ssn: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = netbios_dgm: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = sql_net: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = vmnet: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = bgp: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = Z39_50: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = ldap: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = netstat: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = urh_i: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = X11: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = urp_i: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = pm_dump: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = tftp_u: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = tim_i: back. (0.0)
+|   |   |   |   |   |   |   |   |   service = red_i: back. (0.0)
+|   |   |   |   |   |   dst_host_srv_rerror_rate > 0.99
+|   |   |   |   |   |   |   dst_host_same_srv_rate <= 0.15
+|   |   |   |   |   |   |   |   dst_host_same_srv_rate <= 0.02: portsweep. (87.0)
+|   |   |   |   |   |   |   |   dst_host_same_srv_rate > 0.02: ipsweep. (2.0/1.0)
+|   |   |   |   |   |   |   dst_host_same_srv_rate > 0.15: normal. (269.0/1.0)
+|   |   |   |   |   dst_host_srv_diff_host_rate > 0.24
+|   |   |   |   |   |   protocol_type = tcp
+|   |   |   |   |   |   |   dst_host_diff_srv_rate <= 0.83
+|   |   |   |   |   |   |   |   src_bytes <= 321: normal. (72.0/1.0)
+|   |   |   |   |   |   |   |   src_bytes > 321
+|   |   |   |   |   |   |   |   |   dst_host_same_srv_rate <= 0.65: normal. (2.0)
+|   |   |   |   |   |   |   |   |   dst_host_same_srv_rate > 0.65: warezclient. (9.0)
+|   |   |   |   |   |   |   dst_host_diff_srv_rate > 0.83: ipsweep. (4.0)
+|   |   |   |   |   |   protocol_type = icmp
+|   |   |   |   |   |   |   src_bytes <= 24
+|   |   |   |   |   |   |   |   dst_host_srv_diff_host_rate <= 0.38
+|   |   |   |   |   |   |   |   |   src_bytes <= 13: nmap. (11.0)
+|   |   |   |   |   |   |   |   |   src_bytes > 13: ipsweep. (11.0)
+|   |   |   |   |   |   |   |   dst_host_srv_diff_host_rate > 0.38: ipsweep. (107.0)
+|   |   |   |   |   |   |   src_bytes > 24: normal. (2.0)
+|   |   |   |   |   |   protocol_type = udp: ipsweep. (0.0)
+|   |   |   |   num_compromised > 0
+|   |   |   |   |   src_bytes <= 26408
+|   |   |   |   |   |   hot <= 2: normal. (9.0/1.0)
+|   |   |   |   |   |   hot > 2: buffer_overflow. (2.0)
+|   |   |   |   |   src_bytes > 26408: back. (223.0)
+|   |   |   dst_host_serror_rate > 0.77
+|   |   |   |   flag = SF: normal. (2.0)
+|   |   |   |   flag = S1: neptune. (0.0)
+|   |   |   |   flag = REJ: neptune. (0.0)
+|   |   |   |   flag = S2: neptune. (0.0)
+|   |   |   |   flag = S0
+|   |   |   |   |   land = 0: neptune. (88.0)
+|   |   |   |   |   land = 1: land. (2.0)
+|   |   |   |   flag = S3: neptune. (0.0)
+|   |   |   |   flag = RSTO: neptune. (0.0)
+|   |   |   |   flag = RSTR: neptune. (0.0)
+|   |   |   |   flag = RSTOS0: neptune. (0.0)
+|   |   |   |   flag = OTH: neptune. (0.0)
+|   |   |   |   flag = SH: nmap. (11.0)
+|   |   wrong_fragment > 0
+|   |   |   protocol_type = tcp: teardrop. (0.0)
+|   |   |   protocol_type = icmp: pod. (22.0)
+|   |   |   protocol_type = udp: teardrop. (96.0)
+srv_count > 320: smurf. (27939.0/1.0)
+
+Number of Leaves  : 	120
+
+Size of the tree : 	164
+
+
+Time taken to build model: 2.41 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       49330               99.8543 %
+Incorrectly Classified Instances        72                0.1457 %
+Kappa statistic                          0.9975
+Mean absolute error                      0.0002
+Root mean squared error                  0.011 
+Relative absolute error                  0.3428 %
+Root relative squared error              6.8831 %
+Total Number of Instances            49402     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.999    0.001    0.996      0.999    0.997      0.997    0.999     0.994     normal.
+                 0.987    0.000    0.983      0.987    0.985      0.985    0.992     0.981     back.
+                 0.000    0.000    ?          0.000    ?          ?        0.664     0.167     buffer_overflow.
+                 0.000    0.000    ?          0.000    ?          ?        0.416     0.000     ftp_write.
+                 0.000    0.000    ?          0.000    ?          ?        1.000     1.000     guess_passwd.
+                 0.500    0.000    1.000      0.500    0.667      0.707    0.750     0.500     imap.
+                 0.984    0.000    0.984      0.984    0.984      0.984    0.992     0.968     ipsweep.
+                 0.000    0.000    ?          0.000    ?          ?        1.000     0.072     land.
+                 0.000    0.000    ?          0.000    ?          ?        0.490     0.000     loadmodule.
+                 ?        0.000    ?          ?        ?          ?        ?         ?         multihop.
+                 1.000    0.000    0.999      1.000    1.000      1.000    1.000     1.000     neptune.
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     nmap.
+                 ?        0.000    ?          ?        ?          ?        ?         ?         perl.
+                 ?        0.000    ?          ?        ?          ?        ?         ?         phf.
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     pod.
+                 0.938    0.000    0.957      0.938    0.947      0.947    0.967     0.933     portsweep.
+                 ?        0.000    ?          ?        ?          ?        ?         ?         rootkit.
+                 0.923    0.000    0.969      0.923    0.945      0.946    0.975     0.936     satan.
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     smurf.
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.000     spy.
+                 0.970    0.000    1.000      0.970    0.985      0.985    1.000     1.000     teardrop.
+                 0.873    0.000    0.923      0.873    0.897      0.897    0.969     0.826     warezclient.
+                 0.000    0.000    ?          0.000    ?          ?        0.999     0.023     warezmaster.
+Weighted Avg.    0.999    0.000    ?          0.999    ?          ?        0.999     0.997     
+
+=== Confusion Matrix ===
+
+     a     b     c     d     e     f     g     h     i     j     k     l     m     n     o     p     q     r     s     t     u     v     w   <-- classified as
+  9702     2     0     0     0     0     2     0     0     0     0     0     0     0     0     0     0     1     2     0     0     6     0 |     a = normal.
+     3   226     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     b = back.
+     2     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     1     0 |     c = buffer_overflow.
+     2     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     d = ftp_write.
+     0     2     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     e = guess_passwd.
+     0     0     0     0     0     1     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     1     0 |     f = imap.
+     1     0     0     0     0     0   122     0     0     0     0     0     0     0     0     1     0     0     0     0     0     0     0 |     g = ipsweep.
+     0     0     0     0     0     0     0     0     0     0     2     0     0     0     0     0     0     0     0     0     0     0     0 |     h = land.
+     3     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     i = loadmodule.
+     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     j = multihop.
+     1     0     0     0     0     0     0     0     0     0 10824     0     0     0     0     1     0     0     0     0     0     0     0 |     k = neptune.
+     0     0     0     0     0     0     0     0     0     0     0    22     0     0     0     0     0     0     0     0     0     0     0 |     l = nmap.
+     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     m = perl.
+     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     n = phf.
+     0     0     0     0     0     0     0     0     0     0     0     0     0     0    22     0     0     0     0     0     0     0     0 |     o = pod.
+     3     0     0     0     0     0     0     0     0     0     2     0     0     0     0    90     0     1     0     0     0     0     0 |     p = portsweep.
+     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     q = rootkit.
+    10     0     0     0     0     0     0     0     0     0     1     0     0     0     0     2     0   156     0     0     0     0     0 |     r = satan.
+     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 27972     0     0     0     0 |     s = smurf.
+     1     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     t = spy.
+     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     3     0     0    97     0     0 |     u = teardrop.
+    13     0     0     0     0     0     0     0     0     0     1     0     0     0     0     0     0     0     0     0     0    96     0 |     v = warezclient.
+     2     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0 |     w = warezmaster.
+

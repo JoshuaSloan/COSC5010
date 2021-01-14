@@ -1,0 +1,70 @@
+Top terms per cluster:
+Cluster 0:
+food count: 462
+dog count: 364
+treats count: 200
+dogs count: 99
+cat count: 263
+
+Cluster 1:
+food count: 405
+cat count: 378
+dog count: 364
+cats count: 120
+eat count: 7
+
+Cluster 2:
+coffee count: 212
+cup count: 227
+good count: 94
+taste count: 453
+flavor count: 228
+
+Cluster 3:
+water count: 83
+taste count: 401
+drink count: 326
+coconut count: 394
+bottle count: 202
+
+Cluster 4:
+tea count: 408
+green count: 444
+teas count: 109
+flavor count: 417
+taste count: 106
+
+Cluster 5:
+tea count: 283
+flavor count: 457
+taste count: 203
+good count: 281
+green count: 45
+
+Cluster 6:
+taste count: 137
+good count: 338
+flavor count: 403
+chocolate count: 434
+will count: 96
+
+Cluster 7:
+great count: 116
+good count: 461
+love count: 365
+flavor count: 124
+taste count: 158
+
+Cluster 8:
+coffee count: 415
+cup count: 367
+taste count: 29
+good count: 263
+flavor count: 318
+
+Cluster 9:
+product count: 100
+great count: 310
+good count: 328
+will count: 341
+amazon count: 34

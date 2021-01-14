@@ -1,0 +1,5 @@
+18:35:55: Command: weka.filters.unsupervised.instance.Randomize -S 42
+(42 is random seed default value)
+
+18:38:32: Command: weka.filters.unsupervised.instance.RemovePercentage -P 90.0
+(Remove 90% of the data such that 10% is left)
