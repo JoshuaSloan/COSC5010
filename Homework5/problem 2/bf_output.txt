@@ -1,0 +1,16 @@
+Size of S: 258129
+Size of bit array:2065032
+Number of hash functions:5
+Computed False Positive Probability: 0.021679217053751712
+
+Verifying False Positive Probability on random subsets of the stream data...
+Subset 1 : 0.0171
+Subset 2 : 0.0205
+Subset 3 : 0.0187
+Subset 4 : 0.0187
+Subset 5 : 0.0196
+Subset 6 : 0.0216
+Subset 7 : 0.0173
+Subset 8 : 0.0181
+Subset 9 : 0.0148
+Subset 10 : 0.02
