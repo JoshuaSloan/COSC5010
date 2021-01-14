@@ -1,0 +1,11 @@
+Best spectral clustering results were obtained using "nearest_neighbors" as the affinity from the sklearn spectral clustering library. For this affinity, I was able to achieve a perfect NMI score of 1 for all trials.
+
+Alternatively, you are able to achieve the same results setting the affinity to "rbf" (which is the default) and then adding the parameter assign_labels = "discretize" (where default is "kmeans") to the initialization of the spectral clustering.
+
+With that, you can see that the spectral clustering works perfectly on the karate data, as we are always able to indenity the ture class membership labels (ground truth) based on the clustered data. I also included the Adjusted Rand Score (similarity measure between two clusterings by considering all pairs of samples and counting pairs that are assigned in the same or different clusters in the predicted and true clusterings) which also got the maximum value of 1 across all trials.
+
+I thought to include the True Positive, True Negative, False Positive and False Negative predictions as well, just to highlight the accuracy of predictions being made from the spectral clustering. With that, we can see that accuracy alone is not a good metric, as it is either perfect (1) or does not make a single correct prediction (0). However, this is entirely based on the aribitrary label value chosen for the two groups and if they don't match the ground truth labels, then the prediction labels are flipped (despite node membership being correct). For this reason, it is best to look at a measure like NMI when analyzing the success of the spectral clustering.
+
+As you can see, the algorithm was very quick and on my machine it ran in an average of 0.00919 seconds.
+
+Looking online (https://shodhganga.inflibnet.ac.in/bitstream/10603/143499/11/11_chapter%20iv.pdf), it appears as though the time-complexity for spectral clustering is O(nzke), where n is the number of data points, k is the number of clusters, e is the number of itterations required for the clustering to converge and z is the average number of rows in the similarity matrix. In conjunction with the relatively small dataset, this makes sense as to why my algorithm ran so quickly.

@@ -1,0 +1,87 @@
+Name: 
+Type: Graph
+Number of nodes: 34
+Number of edges: 78
+Average degree:   4.5882 
+
+Trial 1
+True Positives: 18
+True Negatives: 16
+False Positives: 0
+False Negatives: 0
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 2
+True Positives: 0
+True Negatives: 0
+False Positives: 16
+False Negatives: 18
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 3
+True Positives: 0
+True Negatives: 0
+False Positives: 16
+False Negatives: 18
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 4
+True Positives: 18
+True Negatives: 16
+False Positives: 0
+False Negatives: 0
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 5
+True Positives: 0
+True Negatives: 0
+False Positives: 16
+False Negatives: 18
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 6
+True Positives: 0
+True Negatives: 0
+False Positives: 16
+False Negatives: 18
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 7
+True Positives: 0
+True Negatives: 0
+False Positives: 16
+False Negatives: 18
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 8
+True Positives: 0
+True Negatives: 0
+False Positives: 16
+False Negatives: 18
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 9
+True Positives: 0
+True Negatives: 0
+False Positives: 16
+False Negatives: 18
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+Trial 10
+True Positives: 18
+True Negatives: 16
+False Positives: 0
+False Negatives: 0
+Normalized Mutual Information Score: 1.0
+Adjusted Rand Score: 1.0 
+
+The average run-time of this algorithm is 0.00919 seconds.
